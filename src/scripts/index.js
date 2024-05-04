@@ -76,6 +76,8 @@ function validateInput(event) {
       } else if (input.value !== document.querySelector('#password').value) {
         showError(input, span, '* Passwords do not match');
         input.setCustomValidity('Error');
+      } else if (input.validity.tooShort) {
+        showError(input, span, '* Password must be 8 or more characters');
       } else {
         input.setCustomValidity('');
         removeError(input, span);
